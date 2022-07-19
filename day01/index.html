@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리액트 적용해보자</title>
+</head>
+<body>
+  
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script>
+      
+  //React는 상태관리를 통해 렌더링을 한다! 
+
+      function MyButton(props){
+          const[ isClicked, setClicked] = React.useState(false)
+          // 상태관리 isClicked를 바꾸기 위해 setClicked 사용
+
+
+          return React.createElement(
+              "button",
+              { onClick : () => setClicked(true) },
+              isClicked ? "Clicked" : "Click Here" 
+          )
+      }
+      const domContainer = document.getElementById("root")
+      ReactDOM.render(React.createElement(MyButton), domContainer)
+
+  </script>
+
+</body>
+</html>
